@@ -22,14 +22,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set toolbar
         setSupportActionBar(binding.toolbar)
 
-        // Set NIM dan nama
         binding.tvIdentitasNim.text = ""
         binding.tvIdentitasNama.text = "235150707111043 | Ananda Dzaky Islami"
 
-        // Setup RecyclerView dengan animasi
         binding.rvPosts.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             itemAnimator = FadeInUpAnimator().apply {
@@ -37,10 +34,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Load data
         loadPosts()
 
-        // Retry button listener
         binding.btnRetry.setOnClickListener {
             binding.btnRetry.visibility = View.GONE
             loadPosts()
